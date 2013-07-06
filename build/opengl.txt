@@ -1,0 +1,14 @@
+set(required Core Gui)
+set(classes 
+    QGLColormap
+    QGLContext
+    QGLFormat
+    QGLFramebufferObject
+    QGLPixelBuffer
+    QGLWidget
+    )
+set (d_qt_files opengl/gl  opengl/glfuncs  opengl/gltypes  opengl/glu)
+if(${CMAKE_SYSTEM_NAME} STREQUAL Windows AND D_IS_MARS)
+    set(link_example opengl32 glu32)
+    install(FILES lib/opengl32.lib lib/glu32.lib DESTINATION lib)
+endif(${CMAKE_SYSTEM_NAME} STREQUAL Windows AND D_IS_MARS)

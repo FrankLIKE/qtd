@@ -1,0 +1,23 @@
+set(required Core Gui)
+
+set(classes
+    QwtPlotItem
+    QwtPlot
+    QwtPlotDict
+    QwtLegendItemManager
+    QwtText
+    QwtLegend
+    QwtScaleMap
+    QwtScaleWidget
+    QwtScaleTransformation
+    QwtTextLabel
+    QwtScaleDraw
+    QwtAbstractScaleDraw
+    QwtPlotCanvas
+    QwtPlotMarker
+    QwtPlotCurve
+    QwtData
+    QwtPolygonFData
+    QwtArrayData
+    QwtCPointerData
+    )

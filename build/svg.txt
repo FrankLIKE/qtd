@@ -1,0 +1,8 @@
+set(required Core Gui Xml)
+
+set(classes
+    QGraphicsSvgItem
+    QSvgGenerator
+    QSvgRenderer
+    QSvgWidget
+  )
