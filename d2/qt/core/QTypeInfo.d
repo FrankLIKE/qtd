@@ -15,7 +15,15 @@ bool qIsDetached(T)(ref T) { return true; }
 
 template isBasicType(T)
 {
-    enum isBasicType = isNumeric!T || is(T == bool) || is(T == enum);
+    // FIXME: This is here to workaround instantiation failure
+    // for isNumeric with certain types. __traits(isArithmetic
+    // may work too.
+    static if(is(T == struct) || is(T == class)) {
+        enum isBasicType = false;
+    } else {
+        enum isBasicType = isNumeric!T
+            || is(T == bool) || is(T == enum);
+    }
 }
 
 template QTypeInfo(T)

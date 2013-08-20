@@ -76,12 +76,22 @@ public struct QLine
         pt2 += point;
     }
 
+    void translate(QPoint point) {
+        pt1 += point;
+        pt2 += point;
+    }
+
     void translate(int adx, int ady)
     {
         translate(QPoint(adx, ady));
     }
 
     QLine translated(ref QPoint p) // const
+    {
+        return QLine(pt1 + p, pt2 + p);
+    }
+
+    QLine translated(QPoint p) // const
     {
         return QLine(pt1 + p, pt2 + p);
     }
@@ -236,10 +246,18 @@ public struct QLineF
 
     QLineF normalVector() // const
     {
-        return QLineF(p1(), p1() + QPointF(dy(), -dx()));
+        auto point = QPointF(dy(), -dx());
+
+        return QLineF(p1(), p1() + point);
     }
 
     void translate(ref QPointF point)
+    {
+        pt1 += point;
+        pt2 += point;
+    }
+
+    void translate(QPointF point)
     {
         pt1 += point;
         pt2 += point;
@@ -251,6 +269,11 @@ public struct QLineF
     }
 
     QLineF translated(ref QPointF p) // const
+    {
+        return QLineF(pt1 + p, pt2 + p);
+    }
+
+    QLineF translated(QPointF p) // const
     {
         return QLineF(pt1 + p, pt2 + p);
     }
