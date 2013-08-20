@@ -22,7 +22,7 @@
 * exception, Nokia gives you certain additional rights. These rights
 * are described in the Nokia Qt GPL Exception version 1.2, included in
 * the file GPL_EXCEPTION.txt in this package.
-* 
+*
 * Qt for Windows(R) Licensees
 * As a special exception, Nokia, as the sole copyright holder for Qt
 * Designer, grants users of the Qt/Eclipse Integration plug-in the
@@ -1460,9 +1460,9 @@ AbstractMetaFunctionList AbstractMetaClass::queryFunctions(uint query) const
             continue;
         }
 
-        if ((query & Constructors) && (!f->isConstructor()
-                                       || f->ownerClass() != f->implementingClass())
-            || f->isConstructor() && (query & Constructors) == 0) {
+        if (((query & Constructors) && (!f->isConstructor()
+                                       || f->ownerClass() != f->implementingClass()))
+            || (f->isConstructor() && (query & Constructors) == 0)) {
             continue;
         }
 
@@ -2067,3 +2067,4 @@ QString ArgumentReplace::translate(QString arg)
     else
         return arg;
 }
+

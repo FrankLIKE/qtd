@@ -22,7 +22,7 @@
 * exception, Nokia gives you certain additional rights. These rights
 * are described in the Nokia Qt GPL Exception version 1.2, included in
 * the file GPL_EXCEPTION.txt in this package.
-* 
+*
 * Qt for Windows(R) Licensees
 * As a special exception, Nokia, as the sole copyright holder for Qt
 * Designer, grants users of the Qt/Eclipse Integration plug-in the
@@ -794,7 +794,7 @@ public:
     // returns true if this class or its base classes have a
     // virtual destructor
     bool hasVirtualDestructor() const { return m_has_virtual_destructor
-        || m_base_class && m_base_class->hasVirtualDestructor(); }
+        || (m_base_class && m_base_class->hasVirtualDestructor()); }
 
     const AbstractMetaClass* destructorBase() const
     {
@@ -834,7 +834,7 @@ public:
         return false;
     }
 
-    bool setHasVirtualDestructor(bool value) { m_has_virtual_destructor = value; }
+    void setHasVirtualDestructor(bool value) { m_has_virtual_destructor = value; }
 
     QList<TypeEntry *> templateArguments() const { return m_template_args; }
     void setTemplateArguments(const QList<TypeEntry *> &args) { m_template_args = args; }
@@ -1037,3 +1037,4 @@ inline bool isNativeContainer(AbstractMetaType *argumentType)
 }
 
 #endif // ABSTRACTMETALANG_H
+
